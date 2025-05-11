@@ -1,7 +1,7 @@
 use ordered_float::OrderedFloat;
 use std::{collections::HashMap, hash::Hash};
 
-#[derive(Clone, PartialEq, Eq)]
+#[derive(Clone, PartialEq, Eq, Debug)]
 pub struct Edge {
     pub from: usize,
     pub to: usize,
@@ -22,7 +22,7 @@ impl Edge {
 pub struct Node {
     index: usize,
     edges: HashMap<usize, Edge>,
-    label: Option<String>,
+    pub(crate) label: Option<String>,
 }
 
 impl Node {

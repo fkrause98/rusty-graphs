@@ -27,6 +27,7 @@ pub fn dfs_all(g: &GraphList) {
 pub fn dfs_stack(g: &GraphList, start: usize) -> Vec<i64> {
     let mut seen = vec![false; g.num_nodes()];
     let mut last = vec![-1_i64; g.num_nodes()];
+    // This is the 'stack'
     let mut to_explore = Vec::new();
     to_explore.push(start);
     while !to_explore.is_empty() {

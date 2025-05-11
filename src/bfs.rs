@@ -7,9 +7,13 @@ pub fn bfs(g: &GraphList, start: usize) -> Vec<isize> {
     let mut pending = VecDeque::new();
     pending.push_back(start);
     seen[start] = true;
+    let all_edges: Vec<_> = (0..g.num_nodes())
+        .into_iter()
+        .map(|node_indx| g.nodes[node_indx].get_ordered_edge_list())
+        .collect();
     while !pending.is_empty() {
         let next = pending.pop_front().unwrap();
-        for e in g.nodes[next].get_edge_list() {
+        for e in &all_edges[next] {
             let neighbour = e.to;
             if !seen[neighbour] {
                 seen[neighbour] = true;

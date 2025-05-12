@@ -5,4 +5,5 @@ pub mod bellman_ford;
 pub mod bfs;
 pub mod dfs;
 pub mod dijkstra;
+pub mod floyd_warshall;
 pub mod graph;

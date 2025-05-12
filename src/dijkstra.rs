@@ -56,11 +56,8 @@ pub fn dijkstra(g: &GraphList, start: usize) -> Vec<OrderedFloat<f64>> {
                 .iter()
                 .find(|State { position, .. }| *position == neighbor)
                 .is_some();
-            dbg!(e, node_not_visited);
             if node_not_visited {
                 let new_cost = costs[position] + e.weight;
-                dbg!(&costs);
-                dbg!(new_cost);
                 if new_cost < costs[neighbor] {
                     let state = State {
                         cost: new_cost,
